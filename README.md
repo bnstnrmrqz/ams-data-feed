@@ -5,7 +5,7 @@ The THM-100 is installed along water treatment networks, enabling water plant op
 
 **Features:**
 
-- Simple shortcode-based integration (e.g., `[ams_data_feed type="tthm"]`)
+- Simple shortcode-based integration (e.g., `[ams_data_feed]`)
 - Customizable attributes to tailor the displayed feed
 - Reliable and real-time data updates from the AMS API
 
