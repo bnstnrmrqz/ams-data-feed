@@ -17,3 +17,8 @@ The THM-100 is installed along water treatment networks, enabling water plant op
 
 - Magnesium: `[ams_data_feed type="mg"]`
 - Total Trihalomethanes: `[ams_data_feed type="tthm"]`
+
+## Changelog
+
+- **1.1** — In development
+- **1.0** — Initial public release
