@@ -1,24 +1,103 @@
+/* variables */
+:root{
+	--amsBrandBlue:#017ac9;
+
+	--amsColorGreen:#4CAF50;
+	--amsColorYellow:#FFEB3B;
+	--amsColorOrange:#FF9800;
+	--amsColorRed:#F44336;
+
+	--amsGlobalPadding:10px;
+	--amsGlobalRadius:4px;
+}
+
+/* data-theme="default" */
+div#amsReadings[data-theme="default"]{
+	background-color:#fff;
+	padding:calc(var(--amsGlobalPadding) * 2);
+	border-radius:calc(var(--amsGlobalRadius) * 4);
+	box-shadow:0 1px 0 rgba(0, 0, 0, 0.025), 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+div#amsReadings[data-theme="default"] select#locationFilter{
+	background-color:var(--amsBrandBlue);
+	color:#fff;
+	width:100%;
+	padding:calc(var(--amsGlobalPadding) / 2);
+	border:0;
+	border-radius:var(--amsGlobalRadius);
+}
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-timestamp label{
+	font-size:0.9rem;
+	font-style:italic;
+	font-weight:400;
+}
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-tthm label,
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-city label,
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-concentration label{
+	display:none;
+}
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-city{
+	font-weight:700;
+	color:var(--amsBrandBlue);
+}
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-tthm,
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-concentration{
+	font-size:2rem;
+	text-align:center;
+}
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-tthm:after,
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-concentration:after{
+	content:' TTHM Concentration';
+	font-size:1rem;
+	font-weight:700;
+	display:block;
+}
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-concentration:after{
+	content:' Containment Concentration';
+}
+
+/* data-theme="default" */
+div#amsReadings select#locationFilter{
+	margin:0 0 var(--amsGlobalPadding) 0;
+}
+
+/* .city */
 div#amsReadings div.region div.city{
-  position:relative;
+	position:relative;
 }
 div#amsReadings div.region div.city.city-benicia{
-  display:block;
+	display:block;
 }
 div#amsReadings div.region div.city.city-hide{
-  display:none;
+	display:none;
 }
 div#amsReadings div.region div.city.city-show{
-  display:block;
+	display:block;
 }
-div#amsReadings div.region div.city div.reading ul li.data[data-level=great]{
-  color:#4CAF50;
+
+/* .reading */
+div#amsReadings div.region div.city div.reading ul{
+	list-style:none;
+	padding:0;
+	margin:0;
 }
-div#amsReadings div.region div.city div.reading ul li.data[data-level=good]{
-  color:#FFEB3B;
+div#amsReadings div.region div.city div.reading ul li.data[data-level="great"]{
+	color:var(--amsColorGreen);
 }
-div#amsReadings div.region div.city div.reading ul li.data[data-level=bad]{
-  color:#FF9800;
+div#amsReadings div.region div.city div.reading ul li.data[data-level="good"]{
+	color:var(--amsColorYellow);
 }
-div#amsReadings div.region div.city div.reading ul li.data[data-level=dangerous]{
-  color:#F44336;
+div#amsReadings div.region div.city div.reading ul li.data[data-level="bad"]{
+	color:var(--amsColorOrange);
+}
+div#amsReadings div.region div.city div.reading ul li.data[data-level="dangerous"]{
+	color:var(--amsColorRed);
+}
+div#amsReadings div.region div.city div.reading ul li.data label{
+	font-weight:700;
+	margin:0 calc(var(--amsGlobalPadding) / 2) 0 0;
+	display:inline-block;
+}
+div#amsReadings div.region div.city div.reading ul li.data.data-timestamp label{
+	margin-right:0;
 }
