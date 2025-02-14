@@ -2,7 +2,7 @@
 {
 	$(function()
 	{
-		if($('div#amsReadings').length)
+		if($('div#amsReadings[data-type="tthm"]').length)
 		{
 			if($('select#locationFilter').length)
 			{
@@ -11,14 +11,14 @@
 					var selection = $(this).val();
 					if(selection === 'all')
 					{
-						$('div.city').each(function()
+						$('div#amsReadings[data-type="tthm"] div.city').each(function()
 						{
 							$(this).addClass('city-show').removeClass('city-hide');
 						});
 					}
 					else
 					{
-						$('div.city').each(function()
+						$('div#amsReadings[data-type="tthm"] div.city').each(function()
 						{
 							if ($(this).data('city') === selection)
 							{
