@@ -11,12 +11,22 @@ The THM-100 is installed along water treatment networks, enabling water plant op
 
 **Use Case:** This plugin is perfect for water plant operators, municipalities, and organizations that need to share water quality data with the public or internal stakeholders in a clear and accessible format.
 
-## Basic Usage
+## Attribute Usage
 
-**Feed types:**
+**Type (required):**
 
 - Magnesium: `[ams_data_feed type="mg"]`
 - Total Trihalomethanes: `[ams_data_feed type="tthm"]`
+
+**Output (optional):**
+
+- All: `[ams_data_feed type="tthm" output="all"]`
+- Individual: `[ams_data_feed type="mg" output="city, concentration"]`
+
+**Theme (optional):**
+
+- Default: `[ams_data_feed type="tthm" theme="default"]`
+- None: `[ams_data_feed type="tthm" theme="none"]`
 
 ## Changelog
 
