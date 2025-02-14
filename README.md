@@ -23,8 +23,8 @@ The THM-100 is installed along water treatment networks, enabling water plant op
 - **1.1** — February 13, 2025
   - Added additional "theme" attribute.
   - Added additional "output" attribute.
-  - Added conditional logic to shortcode function.
-  - Added "chromium" range condition to `classifyConcentration` function.
+  - Added conditional to `$output` variable regarding "output" attribute. 
+  - Added "chromium" range condition to `classifyConcentration()` function.
   - Added `if(!function_exists())` to prevent "cannot redeclare" PHP error.
   - Added additional CSS styles for "default" value for newly created "theme" attribute.
 - **1.0** — February 11, 2025
