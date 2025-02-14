@@ -9,12 +9,12 @@
  * that starts the plugin.
  *
  * @link              https://github.com/bnstnrmrqz
- * @since             1.0.0
+ * @since             1.1
  * @package           Ams_Data_Feed
  *
  * @wordpress-plugin
  * Plugin Name:       AMS Data Feed
- * Plugin URI:        https://github.com/bnstnrmrqz/AMS-Data-Feed
+ * Plugin URI:        https://github.com/bnstnrmrqz/ams-data-feed
  * Description:       Shortcode usage: [ams_data_feed type="tthm"] or [ams_data_feed type="mg"]
  * Version:           1.0.0
  * Author:            Ben Steiner Marquez
