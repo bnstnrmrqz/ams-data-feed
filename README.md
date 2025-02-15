@@ -30,7 +30,7 @@ The THM-100 is installed along water treatment networks, enabling water plant op
 
 ## Changelog
 
-- **1.1** — February 13, 2025
+- **1.1.0** — February 13, 2025
   - Added additional "theme" attribute.
   - Added additional "output" attribute.
   - Added conditional logic to `$output` variable regarding "output" attribute. 
@@ -38,5 +38,5 @@ The THM-100 is installed along water treatment networks, enabling water plant op
   - Added `if(!function_exists())` to prevent "cannot redeclare" PHP error.
   - Added additional CSS styles for "default" value for newly created "theme" attribute.
   - Fixed jQuery `div#amsReadings[data-type="tthm"]` selector for drop down menu on change function.
-- **1.0** — February 11, 2025
+- **1.0.0** — February 11, 2025
   - Initial public release.
