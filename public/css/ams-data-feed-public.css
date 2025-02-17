@@ -1,6 +1,7 @@
 /* variables */
 :root{
 	--amsBrandBlue:#017ac9;
+	--amsBrandBlack:#222;
 
 	--amsColorGreen:#4CAF50;
 	--amsColorYellow:#FFEB3B;
@@ -30,12 +31,6 @@ div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data
 	font-size:0.9rem;
 	font-style:italic;
 	font-weight:400;
-}
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data[data-level="great"],
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data[data-level="good"],
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data[data-level="bad"],
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data[data-level="dangerous"]{
-	color:var(--amsBrandBlue);
 }
 div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-tthm label,
 div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-city label,
@@ -87,18 +82,6 @@ div#amsReadings div.region div.city div.reading ul{
 	padding:0;
 	margin:0;
 }
-div#amsReadings div.region div.city div.reading ul li.data[data-level="great"]{
-	color:var(--amsColorGreen);
-}
-div#amsReadings div.region div.city div.reading ul li.data[data-level="good"]{
-	color:var(--amsColorYellow);
-}
-div#amsReadings div.region div.city div.reading ul li.data[data-level="bad"]{
-	color:var(--amsColorOrange);
-}
-div#amsReadings div.region div.city div.reading ul li.data[data-level="dangerous"]{
-	color:var(--amsColorRed);
-}
 div#amsReadings div.region div.city div.reading ul li.data label{
 	font-weight:700;
 	margin:0 calc(var(--amsGlobalPadding) / 2) 0 0;
@@ -106,4 +89,30 @@ div#amsReadings div.region div.city div.reading ul li.data label{
 }
 div#amsReadings div.region div.city div.reading ul li.data.data-timestamp label{
 	margin-right:0;
+}
+
+/* .data[data-levelTheme=""] */
+div#amsReadings div.region div.city div.reading ul[data-data="multi"] li.data[data-level="great"]{
+	color:var(--amsColorGreen);
+}
+div#amsReadings div.region div.city div.reading ul[data-data="multi"] li.data[data-level="good"]{
+	color:var(--amsColorYellow);
+}
+div#amsReadings div.region div.city div.reading ul[data-data="multi"] li.data[data-level="bad"]{
+	color:var(--amsColorOrange);
+}
+div#amsReadings div.region div.city div.reading ul[data-data="multi"] li.data[data-level="dangerous"]{
+	color:var(--amsColorRed);
+}
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="blue"] li[data-level="great"],
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="blue"] li[data-level="good"],
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="blue"] li[data-level="bad"],
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="blue"] li[data-level="dangerous"]{
+	color:var(--amsBrandBlue);
+}
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="none"] li[data-level="great"],
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="none"] li[data-level="good"],
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="none"] li[data-level="bad"],
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="none"] li[data-level="dangerous"]{
+	color:var(--amsBrandBlack);
 }
