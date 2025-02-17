@@ -32,6 +32,9 @@
 					}
 				});
 			}
+		}
+		if($('div#amsReadings').length)
+		{
 			$('div.city').each(function()
 			{
 				var $city = $(this);
