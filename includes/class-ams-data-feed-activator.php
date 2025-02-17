@@ -20,8 +20,8 @@
  * @subpackage Ams_Data_Feed/includes
  * @author     Ben Steiner Marquez <bnstnrmrqz@gmail.com>
  */
-class Ams_Data_Feed_Activator {
-
+class Ams_Data_Feed_Activator
+{
 	/**
 	 * Short Description. (use period)
 	 *
@@ -29,8 +29,5 @@ class Ams_Data_Feed_Activator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function activate() {
-
-	}
-
+	public static function activate(){}
 }
