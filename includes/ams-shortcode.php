@@ -4,7 +4,8 @@ function shortcode_ams_data_feed($atts)
 	$a = shortcode_atts(array(
 		'type' => 'tthm', // (string) tthm | mg
 		'output' => 'all', // (string|array) values depend on "type"
-		'theme' => 'default' // (string) default | none
+		'theme' => 'default', // (string) default | none
+		'data' => 'multi' // (string) multi | blue | none
 	), $atts);
 
 	// Parse the output attribute
@@ -197,7 +198,7 @@ function shortcode_ams_data_feed($atts)
 								{
 									$ri++;
 									$output .= '<div class="reading reading-'.$ri.'" data-reading="'.$ri.'">';
-										$output .= '<ul>';
+										$output .= '<ul data-data="'.$a['data'].'">';
 											$output .= '<li class="data data-timestamp"><label>'.formatDate($reading['timeStamp']).'</strong></li>';
 											if(!empty($outputFields) && in_array('br13Conc', $outputFields) || in_array('all', $outputFields))
 											{
@@ -254,7 +255,7 @@ function shortcode_ams_data_feed($atts)
 								{
 									$ri++;
 									$output .= '<div class="reading reading-'.$ri.'" data-reading="'.$ri.'">';
-										$output .= '<ul>';
+										$output .= '<ul data-data="'.$a['data'].'">';
 											if(!empty($outputFields) && in_array('city', $outputFields) || in_array('all', $outputFields))
 											{
 												$output .= '<li class="data data-city"><label>City:</label>'.$reading['city'].'</li>';
