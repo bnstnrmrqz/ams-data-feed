@@ -28,6 +28,12 @@ The THM-100 is installed along water treatment networks, enabling water plant op
 - Default: `[ams_data_feed type="tthm" theme="default"]`
 - None: `[ams_data_feed type="tthm" theme="none"]`
 
+**Data (optional):**
+
+- Multi: `[ams_data_feed type="tthm" data="multi"]`
+- Blue: `[ams_data_feed type="tthm" data="blue"]`
+- None: `[ams_data_feed type="tthm" data="none"]`
+
 ## Changelog
 
 - **1.2.0** — February 17, 2025
