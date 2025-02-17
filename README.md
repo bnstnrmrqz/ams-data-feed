@@ -30,6 +30,9 @@ The THM-100 is installed along water treatment networks, enabling water plant op
 
 ## Changelog
 
+- **1.2.0** — February 17, 2025
+  - Fixed `if($().length)` logic in `ams-data-feed-public.js` file.
+  - Updated `[data-theme="default"]` styling in `ams-data-feed-public.css` file.
 - **1.1.1** — February 17, 2025
   - Global code format clean up.
 - **1.1.0** — February 13, 2025
