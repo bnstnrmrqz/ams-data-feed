@@ -31,6 +31,12 @@ div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data
 	font-style:italic;
 	font-weight:400;
 }
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data[data-level="great"],
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data[data-level="good"],
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data[data-level="bad"],
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data[data-level="dangerous"]{
+	color:var(--amsBrandBlue);
+}
 div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-tthm label,
 div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-city label,
 div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-concentration label{
