@@ -46,7 +46,7 @@ _**Note:**  Default value is `multi` even if the attribute is not defined in the
   - Rewrote `ams-data-feed-public.js` JavaScript file.
   - Updated `if($a['theme'] === 'default')` logic in `ams-shortcode.php` file.
   - Updated `[data-theme="default"]` CSS styling in `ams-data-feed-public.css` file.
-  - _**Please read the updated GitHub [Attribute Usage](#attribute-usage) section.**_
+  - _**Please read the updated [Attribute Usage](#attribute-usage) section.**_
 - **1.2.0** — February 17, 2025
   - Fixed `if($().length)` logic in `ams-data-feed-public.js` file.
   - Updated `[data-theme="default"]` CSS styling in `ams-data-feed-public.css` file.
