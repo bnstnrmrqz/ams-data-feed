@@ -169,59 +169,64 @@ function shortcode_ams_data_feed($atts)
 			// Prepare HTML output
 			$output .= '<div id="amsReadings" data-type="'.$a['type'].'" data-theme="'.$a['theme'].'">';
 				$output .= '<select id="locationFilter">';
+					$output .= '<option value="all">All locations</option>';
 					$output .= '<option value="benicia">Benicia, California</option>';
 					$output .= '<option value="sunnyvale">Sunnyvale, California</option>';
-					$output .= '<option value="arizona">Arizona, State University</option>';
 				$output .= '</select>';
 				// Loop through regions and cities
 				$rsi = 0;
 				foreach($data as $region)
 				{
-					$rsi++;
-					$output .= '<div class="region region-'.convertToSlug($region['name']).'" data-region="'.convertToSlug($region['name']).'">';
-						$ci = 0;
-						foreach($region['cities'] as $city)
-						{
-							$ci++;
-							$classes = 'city city-'.convertToSlug($city['name']);
-							if($rsi === 1 && $ci === 1)
+					//echo '<pre>'; print_r($region); echo '</pre>';
+					if($region['name'] === 'California')
+					{
+						$rsi++;
+						$output .= '<div class="region region-'.convertToSlug($region['name']).'" data-region="'.convertToSlug($region['name']).'">';
+							$ci = 0;
+							foreach($region['cities'] as $city)
 							{
-								$classes .= ' city-show';
-							}
-							else
-							{
-								$classes .= ' city-hide';
-							}
-							$output .= '<div class="'.$classes.'" data-city="'.convertToSlug($city['name']).'">';
-								$ri = 0;
-								foreach($city['readings'] as $reading)
-								{
-									$ri++;
-									$output .= '<div class="reading reading-'.$ri.'" data-reading="'.$ri.'">';
-										$output .= '<ul data-data="'.$a['data'].'">';
-											$output .= '<li class="data data-timestamp"><label>'.formatDate($reading['timeStamp']).'</strong></li>';
-											if(!empty($outputFields) && in_array('br13Conc', $outputFields) || in_array('all', $outputFields))
-											{
-												$output .= '<li class="data data-br13" data-level="'.classifyConcentration($reading['br13Conc'], 'br13').'"><label>Br13 Concentration:</label>'.$reading['br13Conc'].'</li>';
-											}
-											if(!empty($outputFields) && in_array('cl3Conc', $outputFields) || in_array('all', $outputFields))
-											{
-												$output .= '<li class="data data-cl3" data-level="'.classifyConcentration($reading['cl3Conc'], 'cl3').'"><label>Cl3 Concentration:</label>'.$reading['cl3Conc'].'</li>';
+								$ci++;
+								$output .= '<div class="city city-'.convertToSlug($city['name']).'" data-city="'.convertToSlug($city['name']).'">';
+									$ri = 0;
+									foreach($city['readings'] as $reading)
+									{
+										$ri++;
+										$output .= '<div class="reading reading-'.$ri.'" data-reading="'.$ri.'">';
+											$output .= '<ul data-data="'.$a['data'].'">';
+												if($a['theme'] === 'default')
+												{
+													$output .= '<li class="data data-timestamp">'.formatDate($reading['timeStamp']).'</li>';
+													$output .= '<li class="data data-concentration" data-level="'.classifyConcentration($reading['tthmConc'], 'tthm').'">'.$reading['tthmConc'].'</li>';
+													if($reading['sampleType'] === 'online'): $sampleTypeLabel = 'TTHM'; elseif($reading['sampleType'] === 'thm_fp'): $sampleTypeLabel = 'THM-FP'; endif;
+													$output .= '<li class="data data-element" data-level="'.classifyConcentration($reading['tthmConc'], 'tthm').'"><label>'.$sampleTypeLabel.' Concentration</label></li>';
 												}
-											if(!empty($outputFields) && in_array('tthmConc', $outputFields) || in_array('all', $outputFields))
-											{
-												$output .= '<li class="data data-tthm" data-level="'.classifyConcentration($reading['tthmConc'], 'tthm').'"><label>TTHM Concentration:</label>'.$reading['tthmConc'].'</li>';
-											}
-											if(!empty($outputFields) && in_array('chloroform', $outputFields) || in_array('all', $outputFields))
-											{
-												$output .= '<li class="data data-chloroform" data-level="'.classifyConcentration($reading['chloroform'], 'chloroform').'"><label>Chloroform:</label>'.$reading['chloroform'].'</li>';
-											}
-										$output .= '</ul>';
-									$output .= '</div>';
-								}
-							$output .= '</div>'; // Close city div
-						}
-					$output .= '</div>'; // Close region div
+												else
+												{
+													$output .= '<li class="data data-timestamp"><label>'.formatDate($reading['timeStamp']).'</label></li>';
+													if(!empty($outputFields) && in_array('br13Conc', $outputFields) || in_array('all', $outputFields))
+													{
+														$output .= '<li class="data data-br13" data-level="'.classifyConcentration($reading['br13Conc'], 'br13').'"><label>Br13 Concentration:</label>'.$reading['br13Conc'].'</li>';
+													}
+													if(!empty($outputFields) && in_array('cl3Conc', $outputFields) || in_array('all', $outputFields))
+													{
+														$output .= '<li class="data data-cl3" data-level="'.classifyConcentration($reading['cl3Conc'], 'cl3').'"><label>Cl3 Concentration:</label>'.$reading['cl3Conc'].'</li>';
+														}
+													if(!empty($outputFields) && in_array('tthmConc', $outputFields) || in_array('all', $outputFields))
+													{
+														$output .= '<li class="data data-tthm" data-level="'.classifyConcentration($reading['tthmConc'], 'tthm').'"><label>TTHM Concentration:</label>'.$reading['tthmConc'].'</li>';
+													}
+													if(!empty($outputFields) && in_array('chloroform', $outputFields) || in_array('all', $outputFields))
+													{
+														$output .= '<li class="data data-chloroform" data-level="'.classifyConcentration($reading['chloroform'], 'chloroform').'"><label>Chloroform:</label>'.$reading['chloroform'].'</li>';
+													}
+												}
+											$output .= '</ul>';
+										$output .= '</div>';
+									}
+								$output .= '</div>'; // Close city div
+							}
+						$output .= '</div>'; // Close region div
+					}
 				}
 			$output .= '</div>'; // Close readings div
 		}
@@ -234,63 +239,68 @@ function shortcode_ams_data_feed($atts)
 				$rsi = 0;
 				foreach($data as $region)
 				{
-					$rsi++;
-					$output .= '<div class="region region-'.convertToSlug($region['name']).'" data-region="'.convertToSlug($region['name']).'">';
-						$ci = 0;
-						foreach($region['cities'] as $city)
-						{
-							$ci++;
-							$classes = 'city city-'.convertToSlug($city['name']);
-							if($rsi === 1 && $ci === 1)
+					//echo '<pre>'; print_r($region); echo '</pre>';
+					if($region['name'] === 'CA')
+					{
+						$rsi++;
+						$output .= '<div class="region region-'.convertToSlug($region['name']).'" data-region="'.convertToSlug($region['name']).'">';
+							$ci = 0;
+							foreach($region['cities'] as $city)
 							{
-								$classes .= ' city-show';
+								$ci++;
+								$output .= '<div class="city city-'.convertToSlug($city['name']).'" data-city="'.convertToSlug($city['name']).'">';
+									$ri = 0;
+									foreach($city['readings'] as $reading)
+									{
+										$ri++;
+										$output .= '<div class="reading reading-'.$ri.'" data-reading="'.$ri.'">';
+											$output .= '<ul data-data="'.$a['data'].'">';
+												if($a['theme'] === 'default')
+												{
+													$output .= '<li class="data data-city">'.$reading['city'].'</li>';
+													$output .= '<li class="data data-timestamp">'.formatDate($reading['timeStamp']).'</li>';
+													$output .= '<li class="data data-concentration" data-level="'.classifyConcentration($reading['concentration'], 'chromium').'">'.$reading['concentration'].'</li>';
+													$output .= '<li class="data data-element" data-level="'.classifyConcentration($reading['concentration'], 'chromium').'"><label>'.$reading['element'].' Concentration</label></li>';
+												}
+												else
+												{
+													if(!empty($outputFields) && in_array('city', $outputFields) || in_array('all', $outputFields))
+													{
+														$output .= '<li class="data data-city"><label>City:</label>'.$reading['city'].'</li>';
+													}
+													$output .= '<li class="data data-timestamp"><label>'.formatDate($reading['timeStamp']).'</label></li>';
+													if(!empty($outputFields) && in_array('element', $outputFields) || in_array('all', $outputFields))
+													{
+														$output .= '<li class="data data-element"><label>Element:</label>'.$reading['element'].'</li>';
+													}
+													if(!empty($outputFields) && in_array('elementName', $outputFields) || in_array('all', $outputFields))
+													{
+														$output .= '<li class="data data-element-name"><label>Element Name:</label>'.$reading['elementName'].'</li>';
+													}
+													if(!empty($outputFields) && in_array('concentration', $outputFields) || in_array('all', $outputFields))
+													{
+														$output .= '<li class="data data-concentration" data-level="'.classifyConcentration($reading['concentration'], 'chromium').'"><label>Concentration:</label>'.$reading['concentration'].'</li>';
+													}
+													if(!empty($outputFields) && in_array('units', $outputFields) || in_array('all', $outputFields))
+													{
+														$output .= '<li class="data data-units"><label>Units:</label>'.$reading['units'].'</li>';
+													}
+													if(!empty($outputFields) && in_array('sampleType', $outputFields) || in_array('all', $outputFields))
+													{
+														$output .= '<li class="data data-sample-type"><label>Sample Type:</label>'.$reading['sampleType'].'</li>';
+													}
+													if(!empty($outputFields) && in_array('region', $outputFields) || in_array('all', $outputFields))
+													{
+														$output .= '<li class="data data-region"><label>Region:</label>'.$reading['region'].'</li>';
+													}
+												}
+											$output .= '</ul>';
+										$output .= '</div>';
+									}
+								$output .= '</div>'; // Close city div
 							}
-							else
-							{
-								$classes .= ' city-hide';
-							}
-							$output .= '<div class="'.$classes.'" data-city="'.convertToSlug($city['name']).'">';
-								$ri = 0;
-								foreach($city['readings'] as $reading)
-								{
-									$ri++;
-									$output .= '<div class="reading reading-'.$ri.'" data-reading="'.$ri.'">';
-										$output .= '<ul data-data="'.$a['data'].'">';
-											if(!empty($outputFields) && in_array('city', $outputFields) || in_array('all', $outputFields))
-											{
-												$output .= '<li class="data data-city"><label>City:</label>'.$reading['city'].'</li>';
-											}
-											$output .= '<li class="data data-timestamp"><label>'.formatDate($reading['timeStamp']).'</strong></li>';
-											if(!empty($outputFields) && in_array('element', $outputFields) || in_array('all', $outputFields))
-											{
-												$output .= '<li class="data data-element"><label>Element:</label>'.$reading['element'].'</li>';
-											}
-											if(!empty($outputFields) && in_array('elementName', $outputFields) || in_array('all', $outputFields))
-											{
-												$output .= '<li class="data data-element-name"><label>Element Name:</label>'.$reading['elementName'].'</li>';
-											}
-											if(!empty($outputFields) && in_array('concentration', $outputFields) || in_array('all', $outputFields))
-											{
-												$output .= '<li class="data data-concentration" data-level="'.classifyConcentration($reading['concentration'], 'chromium').'"><label>Concentration:</label>'.$reading['concentration'].'</li>';
-											}
-											if(!empty($outputFields) && in_array('units', $outputFields) || in_array('all', $outputFields))
-											{
-												$output .= '<li class="data data-units"><label>Units:</label>'.$reading['units'].'</li>';
-											}
-											if(!empty($outputFields) && in_array('sampleType', $outputFields) || in_array('all', $outputFields))
-											{
-												$output .= '<li class="data data-sample-type"><label>Sample Type:</label>'.$reading['sampleType'].'</li>';
-											}
-											if(!empty($outputFields) && in_array('region', $outputFields) || in_array('all', $outputFields))
-											{
-												$output .= '<li class="data data-region"><label>Region:</label>'.$reading['region'].'</li>';
-											}
-										$output .= '</ul>';
-									$output .= '</div>';
-								}
-							$output .= '</div>'; // Close city div
-						}
-					$output .= '</div>'; // Close region div
+						$output .= '</div>'; // Close region div
+					}
 				}
 			$output .= '</div>'; // Close readings div
 		}
