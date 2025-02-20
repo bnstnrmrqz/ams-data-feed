@@ -17,7 +17,7 @@ div#amsReadings[data-theme="default"]{
 	background-color:#fff;
 	padding:calc(var(--amsGlobalPadding) * 2);
 	border-radius:calc(var(--amsGlobalRadius) * 4);
-	box-shadow:0 1px 0 rgba(0, 0, 0, 0.025), 0 10px 40px rgba(0, 0, 0, 0.1);
+	box-shadow:0 1px 0 rgba(0, 0, 0, 0.025), 0 10px 40px rgba(0, 0, 0, 0.125);
 }
 div#amsReadings[data-theme="default"] select#locationFilter{
 	background-color:var(--amsBrandBlue);
@@ -27,34 +27,21 @@ div#amsReadings[data-theme="default"] select#locationFilter{
 	border:0;
 	border-radius:var(--amsGlobalRadius);
 }
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-timestamp label{
-	font-size:0.9rem;
-	font-style:italic;
-	font-weight:400;
-}
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-tthm label,
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-city label,
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-concentration label{
-	display:none;
-}
 div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-city{
 	font-weight:700;
 	color:var(--amsBrandBlue);
 }
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-tthm,
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-timestamp{
+	font-size:0.9rem;
+	font-style:italic;
+}
 div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-concentration{
 	font-size:2rem;
 	text-align:center;
 }
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-tthm:after,
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-concentration:after{
-	content:' TTHM Concentration';
-	font-size:1rem;
+div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-element{
 	font-weight:700;
-	display:block;
-}
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-concentration:after{
-	content:' Containment Concentration';
+	text-align:center;
 }
 
 /* data-theme="default" */
