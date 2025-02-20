@@ -18,15 +18,19 @@ The THM-100 is installed along water treatment networks, enabling water plant op
 - Magnesium: `[ams_data_feed type="mg"]`
 - Total Trihalomethanes: `[ams_data_feed type="tthm"]`
 
-**Output (optional):** *(Note: Choosing theme="default" will overwrite this attribute.)*
+**Output (optional):**
 
 - All: `[ams_data_feed type="tthm" output="all"]`
 - Individual: `[ams_data_feed type="mg" output="city, concentration"]`
+
+_**Note:** Default value is `all` even if the attribute is not defined. The attribute `theme="default"` has its own defined output of data and will therefor overwrite this attribute._
 
 **Theme (optional):**
 
 - Default: `[ams_data_feed type="tthm" theme="default"]`
 - None: `[ams_data_feed type="tthm" theme="none"]`
+
+_**Note:** Default value is `default` even if the attribute is not defined in the shortcode._
 
 **Data (optional):**
 
@@ -34,12 +38,15 @@ The THM-100 is installed along water treatment networks, enabling water plant op
 - Blue: `[ams_data_feed type="tthm" data="blue"]`
 - None: `[ams_data_feed type="tthm" data="none"]`
 
+_**Note:**  Default value is `multi` even if the attribute is not defined in the shortcode._
+
 ## Changelog
 
 - **1.3.0** — February 20, 2025
   - Rewrote `ams-data-feed-public.js` JavaScript file.
   - Updated `if($a['theme'] === 'default')` logic in `ams-shortcode.php` file.
   - Updated `[data-theme="default"]` CSS styling in `ams-data-feed-public.css` file.
+  - _**Please read the updated GitHub [Attribute Usage](#attribute-usage) section.**_
 - **1.2.0** — February 17, 2025
   - Fixed `if($().length)` logic in `ams-data-feed-public.js` file.
   - Updated `[data-theme="default"]` CSS styling in `ams-data-feed-public.css` file.
