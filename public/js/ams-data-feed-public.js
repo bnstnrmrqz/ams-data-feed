@@ -1,57 +1,86 @@
-(function($)
+document.addEventListener('DOMContentLoaded', function()
 {
-	$(function()
+	document.querySelectorAll('#amsReadings').forEach((amsReadings) =>
 	{
-		if($('div#amsReadings[data-type="tthm"]').length)
+		const locationFilter = amsReadings.querySelector('#locationFilter');
+		let activeCarousel = null; // Track the currently running interval
+
+		function startCarousel(readings)
 		{
-			if($('select#locationFilter').length)
+			if(readings.length === 0) return;
+			let index = 0;
+
+			function showNext()
 			{
-				$('select#locationFilter').on('change', function()
+				readings.forEach((r) => (r.style.display = 'none')); // Hide all
+				readings[index].style.display = 'block'; // Show current
+				index = (index + 1) % readings.length; // Move to next
+			}
+			if(activeCarousel) clearInterval(activeCarousel); // Stop previous carousel
+			showNext(); // Show first item immediately
+			activeCarousel = setInterval(showNext, 3000); // Change every 3 sec
+		}
+		function filterAndStartCarousel()
+		{
+			const allCities = amsReadings.querySelectorAll('.city');
+			const allReadings = amsReadings.querySelectorAll('.reading');
+
+			if(!locationFilter)
+			{
+				// No filter present, cycle through all readings and show all cities
+				allCities.forEach((city) =>
 				{
-					var selection = $(this).val();
-					if(selection === 'all')
-					{
-						$('div#amsReadings[data-type="tthm"] div.city').each(function()
-						{
-							$(this).addClass('city-show').removeClass('city-hide');
-						});
-					}
-					else
-					{
-						$('div#amsReadings[data-type="tthm"] div.city').each(function()
-						{
-							if ($(this).data('city') === selection)
-							{
-								$(this).addClass('city-show').removeClass('city-hide');
-							}
-							else
-							{
-								$(this).addClass('city-hide').removeClass('city-show');
-							}
-						});
-					}
+					city.classList.remove('city-hide');
+					city.classList.add('city-show');
 				});
+				startCarousel(Array.from(allReadings));
+				return;
+			}
+			const selectedCity = locationFilter.value.trim().toLowerCase();
+
+			// Stop any currently running carousel
+			if (activeCarousel) clearInterval(activeCarousel);
+
+			// Reset visibility for all readings
+			allReadings.forEach((r) => (r.style.display = 'none'));
+			allCities.forEach((city) =>
+			{
+				city.classList.remove('city-show');
+				city.classList.add('city-hide');
+			});
+
+			if(selectedCity === 'all')
+			{
+				// Show all cities and cycle through all readings
+				allCities.forEach((city) =>
+				{
+					city.classList.remove('city-hide');
+					city.classList.add('city-show');
+				});
+				startCarousel(Array.from(allReadings));
+			}
+			else
+			{
+				// Show only the selected city
+				const selectedCityElement = amsReadings.querySelector(`.city.city-${CSS.escape(selectedCity)}`);
+
+				if(selectedCityElement)
+				{
+					selectedCityElement.classList.remove('city-hide');
+					selectedCityElement.classList.add('city-show');
+					const cityReadings = selectedCityElement.querySelectorAll('.reading');
+
+					if(cityReadings.length > 0)
+					{
+						startCarousel(Array.from(cityReadings));
+					}
+				}
 			}
 		}
-		if($('div#amsReadings').length)
+		if(locationFilter)
 		{
-			$('div.city').each(function()
-			{
-				var $city = $(this);
-				var $reading = $city.find('div.reading');
-				var currentIndex = 0;
-
-				$reading.hide();
-				$reading.eq(currentIndex).show();
-
-				function nextReading()
-				{
-					$reading.eq(currentIndex).slideUp(400);
-					currentIndex = (currentIndex + 1) % $reading.length;
-					$reading.eq(currentIndex).slideDown(400);
-				}
-				setInterval(nextReading, 3000);
-			});
+			locationFilter.addEventListener('change', filterAndStartCarousel);
 		}
+		filterAndStartCarousel(); // Start carousel on page load
 	});
-})(jQuery);
+});
