@@ -18,7 +18,7 @@ The THM-100 is installed along water treatment networks, enabling water plant op
 - Magnesium: `[ams_data_feed type="mg"]`
 - Total Trihalomethanes: `[ams_data_feed type="tthm"]`
 
-**Output (optional):**
+**Output (optional):** *(Note: Choosing theme="default" will overwrite this attribute.)*
 
 - All: `[ams_data_feed type="tthm" output="all"]`
 - Individual: `[ams_data_feed type="mg" output="city, concentration"]`
@@ -36,6 +36,10 @@ The THM-100 is installed along water treatment networks, enabling water plant op
 
 ## Changelog
 
+- **1.3.0** — February 20, 2025
+  - Rewrote `ams-data-feed-public.js` JavaScript file.
+  - Updated `if($a['theme'] === 'default')` logic in `ams-shortcode.php` file.
+  - Updated `[data-theme="default"]` CSS styling in `ams-data-feed-public.css` file.
 - **1.2.0** — February 17, 2025
   - Fixed `if($().length)` logic in `ams-data-feed-public.js` file.
   - Updated `[data-theme="default"]` CSS styling in `ams-data-feed-public.css` file.
