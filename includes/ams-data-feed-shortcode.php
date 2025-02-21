@@ -167,7 +167,7 @@ function shortcode_ams_data_feed($atts)
 		{
 			//echo '<pre>'; print_r($data); echo '</pre>';
 			// Prepare HTML output
-			$output .= '<div id="amsReadings" data-type="'.$a['type'].'" data-theme="'.$a['theme'].'">';
+			$output .= '<div id="amsDataFeed" data-type="'.$a['type'].'" data-theme="'.$a['theme'].'">';
 				$output .= '<select id="locationFilter">';
 					$output .= '<option value="all">All locations</option>';
 					$output .= '<option value="benicia">Benicia, California</option>';
@@ -234,7 +234,7 @@ function shortcode_ams_data_feed($atts)
 		{
 			//echo '<pre>'; print_r($data); echo '</pre>';
 			// Prepare HTML output
-			$output .= '<div id="amsReadings" data-type="'.$a['type'].'" data-theme="'.$a['theme'].'">';
+			$output .= '<div id="amsDataFeed" data-type="'.$a['type'].'" data-theme="'.$a['theme'].'">';
 				// Loop through regions and cities
 				$rsi = 0;
 				foreach($data as $region)
