@@ -44,6 +44,7 @@ _**Note:**  Default value is `multi` even if the attribute is not defined in the
 
 - **1.3.1** — February 21, 2025
   - Updated `amsReadings` ID reference to `amsDataFeed` for consistency across plugins within same family.
+  - Renamed `ams-shortcode.php` file to `ams-data-feed-shortcode.php`.
 - **1.3.0** — February 20, 2025
   - Rewrote `ams-data-feed-public.js` JavaScript file.
   - Updated `if($a['theme'] === 'default')` logic in `ams-shortcode.php` file.
