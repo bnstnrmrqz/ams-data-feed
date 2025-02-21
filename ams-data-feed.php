@@ -9,9 +9,9 @@
  * Plugin Name:       AMS Data Feed
  * Plugin URI:        https://github.com/bnstnrmrqz/ams-data-feed
  * Description:       This plugin allows users to display a feed of data via a shortcode on their WordPress website. The data is pulled from the Aqua Metrology Systems (AMS) API, which provides real-time readings from the THM-100, a fully automated trihalomethane (THM) monitoring unit.
- * Version:           1.3.0
+ * Version:           1.3.1
  * Author:            Ben Steiner Marquez
- * Author URI:        https://github.com/bnstnrmrqz/
+ * Author URI:        https://github.com/bnstnrmrqz
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       ams-data-feed
@@ -29,7 +29,7 @@ if(!defined('WPINC'))
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('AMS_DATA_FEED_VERSION', '1.3.0');
+define('AMS_DATA_FEED_VERSION', '1.3.1');
 
 /**
  * The code that runs during plugin activation.
@@ -63,7 +63,7 @@ require plugin_dir_path(__FILE__).'includes/class-ams-data-feed.php';
 /**
  * Include the shortcodes functionality file.
  */
-include_once plugin_dir_path(__FILE__).'includes/ams-shortcode.php';
+include_once plugin_dir_path(__FILE__).'includes/ams-data-feed-shortcode.php';
 
 /**
  * Begins execution of the plugin.
