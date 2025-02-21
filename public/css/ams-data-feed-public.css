@@ -13,13 +13,13 @@
 }
 
 /* data-theme="default" */
-div#amsReadings[data-theme="default"]{
+div#amsDataFeed[data-theme="default"]{
 	background-color:#fff;
 	padding:calc(var(--amsGlobalPadding) * 2);
 	border-radius:calc(var(--amsGlobalRadius) * 4);
 	box-shadow:0 1px 0 rgba(0, 0, 0, 0.025), 0 10px 40px rgba(0, 0, 0, 0.125);
 }
-div#amsReadings[data-theme="default"] select#locationFilter{
+div#amsDataFeed[data-theme="default"] select#locationFilter{
 	background-color:var(--amsBrandBlue);
 	color:#fff;
 	width:100%;
@@ -27,79 +27,79 @@ div#amsReadings[data-theme="default"] select#locationFilter{
 	border:0;
 	border-radius:var(--amsGlobalRadius);
 }
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-city{
+div#amsDataFeed[data-theme="default"] div.region div.city div.reading ul li.data.data-city{
 	font-weight:700;
 	color:var(--amsBrandBlue);
 }
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-timestamp{
+div#amsDataFeed[data-theme="default"] div.region div.city div.reading ul li.data.data-timestamp{
 	font-size:0.9rem;
 	font-style:italic;
 }
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-concentration{
+div#amsDataFeed[data-theme="default"] div.region div.city div.reading ul li.data.data-concentration{
 	font-size:2rem;
 	text-align:center;
 }
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul li.data.data-element{
+div#amsDataFeed[data-theme="default"] div.region div.city div.reading ul li.data.data-element{
 	font-weight:700;
 	text-align:center;
 }
 
 /* data-theme="default" */
-div#amsReadings select#locationFilter{
+div#amsDataFeed select#locationFilter{
 	margin:0 0 var(--amsGlobalPadding) 0;
 }
 
 /* .city */
-div#amsReadings div.region div.city{
+div#amsDataFeed div.region div.city{
 	position:relative;
 }
-div#amsReadings div.region div.city.city-benicia{
+div#amsDataFeed div.region div.city.city-benicia{
 	display:block;
 }
-div#amsReadings div.region div.city.city-hide{
+div#amsDataFeed div.region div.city.city-hide{
 	display:none;
 }
-div#amsReadings div.region div.city.city-show{
+div#amsDataFeed div.region div.city.city-show{
 	display:block;
 }
 
 /* .reading */
-div#amsReadings div.region div.city div.reading ul{
+div#amsDataFeed div.region div.city div.reading ul{
 	list-style:none;
 	padding:0;
 	margin:0;
 }
-div#amsReadings div.region div.city div.reading ul li.data label{
+div#amsDataFeed div.region div.city div.reading ul li.data label{
 	font-weight:700;
 	margin:0 calc(var(--amsGlobalPadding) / 2) 0 0;
 	display:inline-block;
 }
-div#amsReadings div.region div.city div.reading ul li.data.data-timestamp label{
+div#amsDataFeed div.region div.city div.reading ul li.data.data-timestamp label{
 	margin-right:0;
 }
 
 /* .data[data-levelTheme=""] */
-div#amsReadings div.region div.city div.reading ul[data-data="multi"] li.data[data-level="great"]{
+div#amsDataFeed div.region div.city div.reading ul[data-data="multi"] li.data[data-level="great"]{
 	color:var(--amsColorGreen);
 }
-div#amsReadings div.region div.city div.reading ul[data-data="multi"] li.data[data-level="good"]{
+div#amsDataFeed div.region div.city div.reading ul[data-data="multi"] li.data[data-level="good"]{
 	color:var(--amsColorYellow);
 }
-div#amsReadings div.region div.city div.reading ul[data-data="multi"] li.data[data-level="bad"]{
+div#amsDataFeed div.region div.city div.reading ul[data-data="multi"] li.data[data-level="bad"]{
 	color:var(--amsColorOrange);
 }
-div#amsReadings div.region div.city div.reading ul[data-data="multi"] li.data[data-level="dangerous"]{
+div#amsDataFeed div.region div.city div.reading ul[data-data="multi"] li.data[data-level="dangerous"]{
 	color:var(--amsColorRed);
 }
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="blue"] li[data-level="great"],
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="blue"] li[data-level="good"],
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="blue"] li[data-level="bad"],
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="blue"] li[data-level="dangerous"]{
+div#amsDataFeed[data-theme="default"] div.region div.city div.reading ul[data-data="blue"] li[data-level="great"],
+div#amsDataFeed[data-theme="default"] div.region div.city div.reading ul[data-data="blue"] li[data-level="good"],
+div#amsDataFeed[data-theme="default"] div.region div.city div.reading ul[data-data="blue"] li[data-level="bad"],
+div#amsDataFeed[data-theme="default"] div.region div.city div.reading ul[data-data="blue"] li[data-level="dangerous"]{
 	color:var(--amsBrandBlue);
 }
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="none"] li[data-level="great"],
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="none"] li[data-level="good"],
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="none"] li[data-level="bad"],
-div#amsReadings[data-theme="default"] div.region div.city div.reading ul[data-data="none"] li[data-level="dangerous"]{
+div#amsDataFeed[data-theme="default"] div.region div.city div.reading ul[data-data="none"] li[data-level="great"],
+div#amsDataFeed[data-theme="default"] div.region div.city div.reading ul[data-data="none"] li[data-level="good"],
+div#amsDataFeed[data-theme="default"] div.region div.city div.reading ul[data-data="none"] li[data-level="bad"],
+div#amsDataFeed[data-theme="default"] div.region div.city div.reading ul[data-data="none"] li[data-level="dangerous"]{
 	color:var(--amsBrandBlack);
 }
