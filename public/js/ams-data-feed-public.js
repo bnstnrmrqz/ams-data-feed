@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function()
 {
-	document.querySelectorAll('#amsReadings').forEach((amsReadings) =>
+	document.querySelectorAll('#amsDataFeed').forEach((amsDataFeed) =>
 	{
-		const locationFilter = amsReadings.querySelector('#locationFilter');
+		const locationFilter = amsDataFeed.querySelector('#locationFilter');
 		let activeCarousel = null; // Track the currently running interval
 
 		function startCarousel(readings)
@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function()
 		}
 		function filterAndStartCarousel()
 		{
-			const allCities = amsReadings.querySelectorAll('.city');
-			const allReadings = amsReadings.querySelectorAll('.reading');
+			const allCities = amsDataFeed.querySelectorAll('.city');
+			const allReadings = amsDataFeed.querySelectorAll('.reading');
 
 			if(!locationFilter)
 			{
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function()
 			else
 			{
 				// Show only the selected city
-				const selectedCityElement = amsReadings.querySelector(`.city.city-${CSS.escape(selectedCity)}`);
+				const selectedCityElement = amsDataFeed.querySelector(`.city.city-${CSS.escape(selectedCity)}`);
 
 				if(selectedCityElement)
 				{
