@@ -42,6 +42,9 @@ _**Note:**  Default value is `multi` even if the attribute is not defined in the
 
 ## Changelog
 
+- **1.3.2** — March 2, 2025
+  - Updated  threshold colors in `ams-data-feed-public.css` file to comply with accessibility contrast standards.
+  - Updated reading thresholds in `ams-data-feed-shortcode.php` file.
 - **1.3.1** — February 21, 2025
   - Updated `amsReadings` ID reference to `amsDataFeed` for consistency across plugins within same family.
   - Renamed `ams-shortcode.php` file to `ams-data-feed-shortcode.php`.
