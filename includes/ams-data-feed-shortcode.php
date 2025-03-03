@@ -80,15 +80,11 @@ function shortcode_ams_data_feed($atts)
 			}
 			elseif($type == 'tthm')
 			{
-				if($concentration < 40)
+				if($concentration < 60)
 				{
 					return 'great';
 				}
-				elseif($concentration >= 40 && $concentration < 80)
-				{
-					return 'good';
-				}
-				elseif($concentration >= 80 && $concentration < 120)
+				elseif($concentration >= 60 && $concentration < 80)
 				{
 					return 'bad';
 				}
@@ -99,15 +95,11 @@ function shortcode_ams_data_feed($atts)
 			}
 			elseif($type == 'chloroform')
 			{
-				if($concentration < 50)
+				if($concentration < 60)
 				{
 					return 'great';
 				}
-				elseif($concentration >= 50 && $concentration < 100)
-				{
-					return 'good';
-				}
-				elseif($concentration >= 100 && $concentration < 150)
+				elseif($concentration >= 60 && $concentration < 80)
 				{
 					return 'bad';
 				}
