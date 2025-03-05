@@ -16,7 +16,7 @@ The THM-100 is installed along water treatment networks, enabling water plant op
 **Type (required):**
 
 - Chromium: `[ams_data_feed type="mg"]`
-- Trihalomethanes: `[ams_data_feed type="tthm"]`
+- Trihalomethane: `[ams_data_feed type="tthm"]`
 
 **Output (optional):**
 
